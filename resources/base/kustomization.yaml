@@ -1,0 +1,13 @@
+---
+
+namespace: research
+
+resources:
+  - clusterrole.yaml
+  - deployment.yaml
+  - rolebinding.yaml
+
+configMapGenerator:
+  - name: golang-micro-product-env
+    envs:
+      - app.env

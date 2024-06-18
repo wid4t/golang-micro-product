@@ -1,0 +1,26 @@
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: golang-micro-product
+  labels:
+    app: golang-micro-product
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: golang-micro-product
+  template:
+    metadata:
+      labels:
+        app: golang-micro-product
+    spec:
+      containers:
+      - name: golang-micro-product
+        securityContext:
+          allowPrivilegeEscalation: false
+        image: golang-micro-product:latest
+        envFrom:
+        - configMapRef:
+            name: golang-micro-product-env
