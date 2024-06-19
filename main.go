@@ -14,10 +14,12 @@ var (
 )
 
 func main() {
+
 	service := micro.NewService(
 		micro.Name(serviceName),
 		micro.Version(version),
 	)
+
 	service.Init()
 
 	if err := pb.RegisterGolangMicroProductHandler(service.Server(), new(handler.GolangMicroProduct)); err != nil {
